@@ -3,13 +3,10 @@
 
 :root{--ink:#1e2a38;--cream:#bdc7d3;--pink:#8f9caf}body{background:#bdc7d3;color:#1e2a38}main{padding-top:38px}.masthead{border-top:7px double #1e2a38}.masthead h1{font-family:'Bebas Neue','Impact','Arial Narrow',sans-serif;font-stretch:condensed;font-size:clamp(32px,7vw,100px);font-weight:400;letter-spacing:0px;text-align:center;margin:15px 0 13px;line-height:1.12}.issue{display:flex;justify-content:space-between;border-top:7px double #1e2a38;border-bottom:2px solid #1e2a38;padding:15px 0;text-transform:uppercase;font-weight:bold;letter-spacing:1px;font-size:clamp(10px,1.5vw,16px)}.toolbar{margin-top:22px}.badge{background:#a8b4c3}input{border-color:#7c8d9e}input::placeholder{color:#4c5e79}.viewport{border-color:#1e2a38;box-shadow:6px 6px 0 #8f9caf;background:#263b50}footer{color:#394a60;border-top:1px solid #8f9caf;margin-top:22px;padding-top:18px}.letter p{color:#394a60}.letter small{color:#4c5e79}dialog::backdrop{background:#141d2cbd}.person.visited:after{color:#f1d596}.person span{background:#bdc7d3;border-color:#1e2a38}.letter{max-height:85dvh;overflow:auto}dialog{box-shadow:10px 10px 0 #141d2c55}.letter h2{line-height:1.2}@media(max-width:650px){main{padding-top:24px}.masthead h1{font-size:9vw;letter-spacing:-1px}.issue{font-size:10px;letter-spacing:0}.toolbar{justify-content:space-between}#count{font-size:10px}input{width:100%;order:3}}
 .viewport{margin-top:26px}</style><main><div class="masthead"><h1>ONE MONTH WITH ROOKIES</h1><div class="issue"><span>Vol. First Mensive</span><span>Citius. Altius. Fortius.</span></div></div><div class="viewport"><div class="world" id="world"><canvas class="map" id="map" width="600" height="350"></canvas></div></div><footer><span>A new chapter has only just begun.</span><span>MADE WITH LOVE, INSPECTORS ♡</span></footer></main><dialog id="letter"><div class="letter"><button class="close" aria-label="Close letter">×</button><small>A LETTER FOR <b id="recipient"></b></small><h2>Happy 1st mensive,<br>Rookies! ♡</h2><p id="message"></p><p class="signature">Sincerely, Inspectors.</p><button class="done">Back to our little world ↵</button></div></dialog><script>const c=document.querySelector('#map'),g=c.getContext('2d');g.imageSmoothingEnabled=false;let seed=29;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}function rect(x,y,w,h,color){g.fillStyle=color;g.fillRect(x,y,w,h)}rect(0,0,600,350,'#23384b');
-// Street and parking bay, outside the station.
 rect(0,255,600,95,'#6c7b85');for(let y=259;y<350;y+=14)for(let x=0;x<600;x+=14){rect(x,y,1,1,'#94a0a4');rect(x+5,y+3,1,1,'#536976')}
 for(let x=20;x<600;x+=90){rect(x,274,2,66,'#bec8c9');rect(x,340,63,2,'#bec8c9')}rect(0,251,600,5,'#d4dbce');rect(0,255,600,3,'#344a5a');
-// Roof-free station with blue tiled walls and speckled floors.
 rect(8,8,584,243,'#172738');rect(13,13,574,233,'#879fba');rect(13,13,574,31,'#345994');for(let y=14;y<42;y+=7)for(let x=14;x<586;x+=14){rect(x,y,13,1,'#4772ae');rect(x,y,1,7,'#274478')}
 rect(13,44,574,3,'#d7dfdf');for(let y=48;y<246;y+=8)for(let x=15;x<587;x+=8){rect(x,y,1,1,'#516d85');rect(x+3,y+4,1,1,'#c0cfcd')}
-// Vertical hallway and reception divider.
 rect(273,47,7,156,'#263b51');rect(320,47,7,156,'#263b51');rect(276,49,2,150,'#d2d8ce');rect(322,49,2,150,'#b4c4c8');rect(273,222,7,24,'#263b51');rect(320,222,7,24,'#263b51');rect(280,47,40,198,'#b2c2c6');for(let y=47;y<246;y+=10)rect(280,y,40,1,'#8da7b1');for(let x=280;x<320;x+=10)rect(x,47,1,198,'#8da7b1');
 function label(txt,x,y,color='#e6ecdb',size=6){g.font='bold '+size+'px monospace';g.fillStyle=color;g.fillText(txt,x,y)}
 label('ELITE PROTECTION BUREAU',198,31,'#f3e5ac',9);label('OPERATIONS',105,60);label('BRIEFING ROOM',420,60);label('RECEPTION',281,75,'#314d69',5);
@@ -17,16 +14,13 @@ function windowAt(x){rect(x,17,30,21,'#1c3453');rect(x+2,19,26,17,'#83dce2');rec
 windowAt(32);windowAt(538);
 function desk(x,y){rect(x+2,y+3,28,16,'#294355');rect(x,y,28,15,'#b68e68');rect(x+1,y+1,26,2,'#e2bf8c');rect(x+7,y-7,14,10,'#1c3045');rect(x+9,y-5,10,6,'#72c9d3');rect(x+11,y+4,7,2,'#d7d9c1');rect(x+2,y+5,5,6,'#e4ddba');rect(x+9,y+18,12,9,'#29485d');rect(x+10,y+19,10,4,'#4f7791')}
 for(let x=34;x<250;x+=42)for(let y=98;y<225;y+=44)desk(x,y);
-// Meeting tables, documents, chairs and notice boards.
 for(let x=358;x<568;x+=42)for(let y=98;y<225;y+=44)desk(x,y);
 rect(346,50,37,25,'#203b53');rect(348,52,33,21,'#e4e7d4');for(let i=0;i<4;i++){rect(351,55+i*4,24-i*3,1,i%2?'#567896':'#bb676e')}
 rect(527,50,45,25,'#213b52');rect(529,52,41,21,'#b59166');for(let i=0;i<5;i++)rect(532+i*7,55+(i%2)*8,5,6,['#f0dba2','#c4d8d4','#e3ac98'][i%3]);
-// Lockers, water cooler, potted plants and reception desk.
 for(let x=19;x<87;x+=11){rect(x,51,10,26,'#294b64');rect(x+1,52,8,23,'#6e8ca3');rect(x+2,55,6,1,'#33556b');rect(x+7,64,1,3,'#d8dbbd')}
 rect(292,113,17,49,'#29465b');rect(293,114,15,46,'#bb976c');rect(295,123,11,12,'#1b344c');rect(297,125,7,8,'#7cd1d8');rect(297,140,7,11,'#e8e4c9');
 function plant(x,y){rect(x,y,8,9,'#b17859');rect(x-2,y-8,12,9,'#39726e');rect(x+1,y-13,6,13,'#5a9d81');rect(x+3,y-13,1,15,'#b5c5a0')}
 plant(20,232);plant(569,232);plant(292,190);
-// Front entrance steps and a pair of patrol cars.
 rect(279,244,41,4,'#d3dbd3');rect(276,248,47,3,'#b5c3c6');rect(273,251,53,3,'#91a5ae');
 function car(x,y){rect(x+9,y,12,6,'#192a3c');rect(x+38,y,12,6,'#192a3c');rect(x+9,y+27,12,6,'#192a3c');rect(x+38,y+27,12,6,'#192a3c');rect(x,y+7,61,20,'#213c59');rect(x+3,y+5,55,20,'#e6e9d7');rect(x+17,y+2,25,27,'#e4e9d9');rect(x+18,y+5,10,21,'#77b6cb');rect(x+35,y+6,6,19,'#77b6cb');rect(x+2,y+15,56,4,'#3477bb');rect(x+29,y+9,4,6,'#ef7775');rect(x+29,y+16,4,6,'#58abdb');label('POLICE',5+x,y+14,'#294a72',5);rect(x+2,y+7,3,3,'#f4d58b');rect(x+55,y+7,3,3,'#f4d58b')}
 car(108,293);car(436,293);label('KEEP CLEAR',271,307,'#d9d6ac',7);for(let x=270;x<327;x+=9)rect(x,317,5,2,'#d9d6ac');
